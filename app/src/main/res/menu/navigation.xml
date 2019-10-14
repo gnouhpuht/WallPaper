@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/popular"
+        android:icon="@drawable/ic_star_gray"
+        android:title="Phổ biến"/>
+    <item android:id="@+id/discover"
+        android:icon="@drawable/ic_airplane_gray"
+        android:title="Khám phá"/>
+    <item android:id="@+id/favourite"
+        android:icon="@drawable/ic_favorite_gray"
+        android:title="Yêu thích"/>
+    <item android:id="@+id/more"
+        android:icon="@drawable/ic_more_gray"
+        android:title="Thêm"/>
+
+</menu>
