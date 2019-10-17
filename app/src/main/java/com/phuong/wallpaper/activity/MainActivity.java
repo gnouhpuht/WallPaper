@@ -1,45 +1,26 @@
 package com.phuong.wallpaper.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.material.tabs.TabLayout;
 import com.phuong.wallpaper.R;
+import com.phuong.wallpaper.adapter.ViewPagerAdapter;
+import com.phuong.wallpaper.fragment.FragmentHome;
 
 public class MainActivity extends AppCompatActivity {
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        getSupportFragmentManager().beginTransaction().add(R.id.frame_main,  new FragmentHome(),FragmentHome.class.getName()).commit();
 
     }
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.popular:
-                    return true;
-                case R.id.discover:
-                    return true;
-                case R.id.favourite:
-                    return true;
-                case R.id.more:
-                    Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.android.vending");
-                    startActivity(launchIntent);
-                    return true;
-            }
-            return false;
-        }
-    };
+
+
+
 }

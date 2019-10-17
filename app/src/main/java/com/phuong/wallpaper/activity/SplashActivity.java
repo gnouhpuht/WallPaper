@@ -31,7 +31,7 @@ public class SplashActivity extends AppCompatActivity {
         runnable=new Runnable() {
             @Override
             public void run() {
-                Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                Intent intent=new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
                 finish();
                 progressBar.setVisibility(View.GONE);
