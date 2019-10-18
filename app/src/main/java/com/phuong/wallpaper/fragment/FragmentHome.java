@@ -17,17 +17,12 @@ public class FragmentHome extends Fragment {
     private ViewPager viewPager;
     private View view;
     private ViewPagerAdapter viewPagerAdapter;
-    private Activity activity;
+
     final int[] ICONS = new int[]{
             R.drawable.icon_wallpaper,
             R.drawable.icon_video_wallpaper,
     };
 
-    @Override
-    public void onAttach(@NonNull Activity activity) {
-        super.onAttach(activity);
-        this.activity=activity;
-    }
 
     @Nullable
     @Override
