@@ -3,4 +3,5 @@
     <string name="popupar">Popular</string>
     <string name="wallpaper">Hình nền</string>
     <string name="videowallpaper">Hình ảnh động</string>
+    <string name="progress_dialog_waiting_message">Đang tải…</string>
 </resources>

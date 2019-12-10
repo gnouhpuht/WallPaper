@@ -1,49 +1,58 @@
 package com.phuong.wallpaper.fragment;
 
-import android.content.Intent;
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.phuong.wallpaper.R;
+import androidx.viewpager.widget.ViewPager;
+import com.phuong.wallpaper.adapter.ViewPagerAdapter;
+import com.phuong.wallpaper.databinding.FragmentWallpaperBinding;
 
 public class FragmentWallpaper extends Fragment {
+    private FragmentWallpaperBinding binding;
     private View view;
+    private final String[] PERMISTION = {
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.READ_EXTERNAL_STORAGE
+
+    };
+    private ViewPager viewPager;
+    private ViewPagerAdapter viewPagerAdapter;
+    private FragmentPopular popular=new FragmentPopular();
+    private FragmentCategory category=new FragmentCategory();
+    private FragmentFavorite favorite =new FragmentFavorite();
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = LayoutInflater.from(inflater.getContext()).inflate(R.layout.activity_wallpaper, container, false);
-        BottomNavigationView navigation = (BottomNavigationView) view.findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        return view;
+        binding=FragmentWallpaperBinding.inflate(inflater,container,false);
+
+        if (checkPermistion()){
+            initView(binding);
+        }
+        return binding.getRoot();
     }
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+    private void initView(FragmentWallpaperBinding binding) {
+    }
 
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.popular:
-                    return true;
-                case R.id.discover:
-                    return true;
-                case R.id.favourite:
-                    return true;
-                case R.id.more:
-                    Intent launchIntent = getActivity().getPackageManager().getLaunchIntentForPackage("com.android.vending");
-                    startActivity(launchIntent);
-                    return true;
+
+
+    public boolean checkPermistion(){
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){
+            for (String p: PERMISTION){
+                if (getActivity().checkSelfPermission(p) != PackageManager.PERMISSION_GRANTED) {
+                    requestPermissions(PERMISTION, 0);
+                    return false;
+                }
             }
-            return false;
         }
-    };
+        return true;
+    }
 }

@@ -3,9 +3,20 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">#673AB7</item>
+        <item name="colorPrimaryDark">#512DA8</item>
+        <item name="colorAccent">#7E57C2</item>
     </style>
 
+    <style name="AppWallpaper" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#E91E63</item>
+        <item name="colorPrimaryDark">#EC407A</item>
+        <item name="colorAccent">#C2185B</item>
+    </style>
+
+    <style name="AppVideoWallpaper" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#FF5722</item>
+        <item name="colorPrimaryDark">#FF7043</item>
+        <item name="colorAccent">#E64A19</item>
+    </style>
 </resources>

@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent">
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/head"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
         <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/banner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorAccent">
+            >
 
             <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
-                android:background="@color/colorAccent">
+                >
 
                 <RelativeLayout
                     android:id="@+id/ll_menu"
@@ -61,26 +64,38 @@
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tapbar"
                 android:layout_width="match_parent"
+                app:tabMode="fixed"
                 android:layout_height="wrap_content"
-                android:background="@color/colorAccent">
+               >
 
             </com.google.android.material.tabs.TabLayout>
         </com.google.android.material.appbar.AppBarLayout>
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/view_pager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        </androidx.viewpager.widget.ViewPager>
-
-        <FrameLayout
-            android:id="@+id/content"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </FrameLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</LinearLayout>
+    </FrameLayout>
+    <androidx.viewpager.widget.ViewPager
+        android:layout_below="@id/head"
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_above="@+id/navigation"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    </androidx.viewpager.widget.ViewPager>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation"
+        app:menu="@menu/navigation"
+        app:itemTextColor="@drawable/listen_bottom_nvg_video_wallpaper"
+        app:itemIconTint="@drawable/listen_bottom_nvg_video_wallpaper"
+        app:itemBackground="@android:color/white"
+        android:layout_alignParentBottom="true"
+        app:labelVisibilityMode="labeled"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>
+</layout>

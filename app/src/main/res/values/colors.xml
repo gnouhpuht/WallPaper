@@ -7,4 +7,6 @@
     <color name="orange">#FF5722</color>
     <color name="white">#ffffff</color>
     <color name="gray">#9E9E9E</color>
+    <color name="color_line">#30000000</color>
+    <color name="gay_light">#EEEEEE</color>
 </resources>
